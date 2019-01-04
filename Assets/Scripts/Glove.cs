@@ -19,7 +19,6 @@ public class Glove : MonoBehaviour {
     [SerializeField]
     GameObject scoreText;
 
-    public int score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +43,6 @@ public class Glove : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, transform.position.y, startingPosition.z);
         }
 
-        print(isReturning);
 
         wasPunchingPreviousFrame = false;
 	}
@@ -65,8 +63,8 @@ public class Glove : MonoBehaviour {
         if (isPunching && !isReturning) {
             coll.gameObject.GetComponent<Fish>().WasHit();
             GetComponent<AudioSource>().Play();
-            score++;
-            scoreText.GetComponent<TextMeshProUGUI>().text = "Fish punched: " + score.ToString();
+            GameManager.instance.score++;
+            scoreText.GetComponent<TextMeshProUGUI>().text = "Fish punched: " + GameManager.instance.score.ToString();
         }
     }
 }

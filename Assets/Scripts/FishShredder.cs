@@ -16,6 +16,5 @@ public class FishShredder : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll) {
         Destroy(coll.gameObject);
-        print("hit");
     }
 }

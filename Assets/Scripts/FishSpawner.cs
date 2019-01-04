@@ -29,8 +29,8 @@ public class FishSpawner : MonoBehaviour {
 
     IEnumerator KeepLaunchingFish() {
         while(true) {
-
-            LaunchFish();
+            if (GameManager.instance.isPlayingAWave)
+                LaunchFish();
             yield return new WaitForSeconds(1f);
         }
     }
